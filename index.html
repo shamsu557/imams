@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Imam's Services Nig Ltd – Excellence in Every Endeavour</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --deep: #0a1628;
+  --navy: #112240;
+  --slate: #1e3a5f;
+  --cream: #fdf8f0;
+  --text: #2c3e50;
+  --muted: #7f8c8d;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ====== PRELOADER ====== */
+#preloader {
+  position: fixed; inset: 0; background: var(--deep);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999; transition: opacity 0.6s ease, visibility 0.6s;
+}
+#preloader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-ring {
+  width: 60px; height: 60px;
+  border: 3px solid rgba(201,168,76,0.3);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ====== NAVBAR ====== */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+  transition: background 0.4s, box-shadow 0.4s;
+}
+#navbar.scrolled {
+  background: rgba(10,22,40,0.97);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 12px; text-decoration: none;
+}
+.nav-brand .logo-mark {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 4px; overflow: hidden;
+}
+.nav-brand .logo-mark img {
+  width: 100%; height: 100%; object-fit: contain;
+}
+.nav-brand span {
+  color: white; font-size: 13px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.3;
+}
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.8); text-decoration: none;
+  font-size: 13px; font-weight: 500; letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px;
+  background: var(--gold); transform: scaleX(0); transition: transform 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta {
+  background: var(--gold); color: var(--deep); padding: 9px 22px;
+  border-radius: 3px; font-weight: 700; font-size: 12px;
+  letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+.nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { width: 24px; height: 2px; background: white; transition: 0.3s; }
+
+/* ====== HERO ====== */
+#hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--deep) 0%, var(--navy) 50%, var(--slate) 100%);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center;
+}
+.hero-bg-img {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80') center/cover no-repeat;
+  opacity: 0.12;
+}
+.hero-pattern {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(201,168,76,0.06) 0%, transparent 40%);
+}
+.hero-grid {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image: linear-gradient(var(--gold) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--gold) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1100px; margin: 0 auto; padding: 140px 5% 80px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+.hero-text .eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--gold); font-size: 12px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px;
+}
+.hero-text .eyebrow::before {
+  content: ''; width: 30px; height: 1px; background: var(--gold);
+}
+.hero-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 5vw, 62px); font-weight: 900;
+  color: white; line-height: 1.1; margin-bottom: 24px;
+}
+.hero-text h1 em { color: var(--gold); font-style: normal; }
+.hero-text p {
+  color: rgba(255,255,255,0.7); font-size: 17px; line-height: 1.7;
+  margin-bottom: 40px; max-width: 460px;
+}
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--gold); color: var(--deep);
+  padding: 14px 32px; border-radius: 3px;
+  font-weight: 700; font-size: 13px; letter-spacing: 1px;
+  text-transform: uppercase; text-decoration: none;
+  transition: all 0.3s; display: inline-block;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,168,76,0.35); }
+.btn-outline {
+  border: 1px solid rgba(255,255,255,0.4); color: white;
+  padding: 14px 32px; border-radius: 3px;
+  font-weight: 500; font-size: 13px; letter-spacing: 1px;
+  text-transform: uppercase; text-decoration: none;
+  transition: all 0.3s; display: inline-block;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+.hero-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.stat-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 8px; padding: 28px 24px;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.stat-box:hover { border-color: var(--gold); transform: translateY(-3px); }
+.stat-box .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px; font-weight: 900; color: var(--gold); line-height: 1;
+}
+.stat-box .label { color: rgba(255,255,255,0.6); font-size: 13px; margin-top: 6px; }
+.scroll-indicator {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 2px;
+  animation: bounce 2s ease-in-out infinite;
+}
+.scroll-indicator::after {
+  content: ''; width: 1px; height: 40px; background: linear-gradient(var(--gold), transparent);
+}
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+/* ====== TICKER ====== */
+.ticker-wrap {
+  background: var(--gold); overflow: hidden; white-space: nowrap;
+  padding: 12px 0;
+}
+.ticker-inner {
+  display: inline-block;
+  animation: ticker 30s linear infinite;
+}
+.ticker-inner span {
+  color: var(--deep); font-size: 13px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 0 40px;
+}
+.ticker-inner span::before { content: '◆ '; }
+@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ====== SECTIONS ====== */
+.section { padding: 100px 5%; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--gold); font-size: 11px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px;
+}
+.section-label::before { content:''; width:24px; height:1px; background:var(--gold); }
+h2.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 48px); font-weight: 900;
+  color: var(--deep); line-height: 1.15; margin-bottom: 20px;
+}
+h2.section-title.light { color: white; }
+
+/* ====== ABOUT ====== */
+#about { background: white; }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.about-img-wrap {
+  position: relative;
+}
+.about-img-wrap img {
+  width: 100%; border-radius: 4px;
+  display: block; box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+.about-img-accent {
+  position: absolute; bottom: -20px; right: -20px;
+  width: 120px; height: 120px;
+  background: var(--gold); border-radius: 4px; z-index: -1;
+}
+.about-badge {
+  position: absolute; top: -20px; left: -20px;
+  background: var(--deep); color: var(--gold);
+  padding: 18px 22px; border-radius: 4px; text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+.about-badge .yr { font-size: 32px; font-weight: 900; display: block; line-height: 1; }
+.about-badge .yr-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+.about-text p { font-size: 16px; line-height: 1.8; color: #5a6a7a; margin-bottom: 20px; }
+.about-details {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px;
+}
+.detail-item {
+  padding: 16px; border-left: 2px solid var(--gold); background: var(--cream);
+}
+.detail-item .d-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.detail-item .d-value { font-weight: 700; color: var(--deep); font-size: 14px; margin-top: 4px; }
+
+/* ====== SERVICES ====== */
+#services { background: var(--deep); }
+.services-intro { max-width: 560px; margin-bottom: 60px; }
+.services-intro p { color: rgba(255,255,255,0.6); font-size: 16px; line-height: 1.7; margin-top: 16px; }
+.services-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2px;
+}
+.service-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 36px 32px;
+  transition: all 0.3s; cursor: default;
+  position: relative; overflow: hidden;
+}
+.service-item::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 3px; height: 0; background: var(--gold);
+  transition: height 0.4s ease;
+}
+.service-item:hover { background: rgba(201,168,76,0.06); border-color: rgba(201,168,76,0.3); }
+.service-item:hover::before { height: 100%; }
+.service-icon {
+  font-size: 32px; margin-bottom: 16px; display: block;
+}
+.service-item h3 {
+  font-family: 'Playfair Display', serif;
+  color: white; font-size: 20px; margin-bottom: 10px;
+}
+.service-item p { color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.6; }
+.service-num {
+  position: absolute; top: 20px; right: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 48px; font-weight: 900;
+  color: rgba(201,168,76,0.08); line-height: 1;
+}
+
+/* ====== WHY US ====== */
+#why { background: var(--cream); }
+.why-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+.why-img-col { position: relative; }
+.why-img-col img {
+  width: 100%; border-radius: 4px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+}
+.why-img-overlay {
+  position: absolute; bottom: 24px; left: 24px; right: 24px;
+  background: var(--deep); color: white; padding: 24px;
+  border-radius: 4px;
+}
+.why-img-overlay p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.8); }
+.why-img-overlay strong { color: var(--gold); }
+.features-list { margin-top: 32px; display: flex; flex-direction: column; gap: 20px; }
+.feature {
+  display: flex; gap: 18px; align-items: flex-start;
+  padding: 20px; background: white; border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.feature:hover { transform: translateX(4px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.feature-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: var(--deep); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.feature h4 { font-size: 15px; font-weight: 700; color: var(--deep); margin-bottom: 4px; }
+.feature p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* ====== TEAM ====== */
+#team { background: white; }
+.team-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px;
+  margin-top: 56px;
+}
+.team-card {
+  border-radius: 4px; overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.team-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.14); }
+.team-card-img {
+  height: 260px; overflow: hidden; position: relative;
+  background: var(--slate);
+}
+.team-card-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s;
+}
+.team-card:hover .team-card-img img { transform: scale(1.05); }
+.team-card-img .placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 56px; font-weight: 900; color: rgba(255,255,255,0.15);
+}
+.team-card-body {
+  padding: 20px 22px 24px;
+  background: white;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s;
+}
+.team-card:hover .team-card-body { border-color: var(--gold); }
+.team-card-body h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--deep); }
+.team-card-body .role { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-top: 4px; }
+.team-card-body p { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+
+/* ====== GALLERY ====== */
+#gallery { background: var(--deep); }
+.gallery-intro { margin-bottom: 48px; }
+.gallery-intro p { color: rgba(255,255,255,0.6); margin-top: 12px; font-size: 16px; max-width: 500px; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 8px;
+}
+.gallery-item {
+  overflow: hidden; border-radius: 3px;
+  position: relative; cursor: pointer;
+}
+.gallery-item.tall { grid-row: span 2; }
+.gallery-item.wide { grid-column: span 2; }
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover; min-height: 200px;
+  transition: transform 0.5s, filter 0.5s;
+  display: block;
+}
+.gallery-item:hover img { transform: scale(1.08); filter: brightness(0.8); }
+.gallery-item .overlay {
+  position: absolute; inset: 0; background: rgba(10,22,40,0.7);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.3s;
+}
+.gallery-item:hover .overlay { opacity: 1; }
+.gallery-item .overlay span { color: var(--gold); font-size: 18px; font-weight: 600; letter-spacing: 1px; text-align: center; }
+
+/* ====== CONTACT ====== */
+#contact { background: var(--cream); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; margin-top: 56px;
+}
+.contact-info-block h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; color: var(--deep); margin-bottom: 28px;
+}
+.contact-items { display: flex; flex-direction: column; gap: 20px; }
+.contact-item {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 20px; background: white; border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+.contact-item .ci-icon {
+  width: 42px; height: 42px; flex-shrink: 0;
+  background: var(--deep); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.contact-item .ci-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+.contact-item .ci-value { font-size: 14px; font-weight: 600; color: var(--deep); margin-top: 3px; }
+.contact-item a { color: var(--deep); text-decoration: none; }
+.contact-item a:hover { color: var(--gold); }
+
+.contact-form-wrap {
+  background: white; border-radius: 4px; padding: 44px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+}
+.contact-form-wrap h3 {
+  font-family: 'Playfair Display', serif; font-size: 24px;
+  color: var(--deep); margin-bottom: 28px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; }
+.form-group label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+.form-group input, .form-group textarea, .form-group select {
+  padding: 13px 16px; border: 1px solid #e0e0e0;
+  border-radius: 3px; font-family: 'DM Sans', sans-serif;
+  font-size: 14px; color: var(--deep);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background: var(--cream); outline: none;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.submit-btn {
+  width: 100%; padding: 15px; background: var(--deep); color: white;
+  border: none; border-radius: 3px; font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden;
+}
+.submit-btn:hover { background: var(--navy); box-shadow: 0 6px 20px rgba(10,22,40,0.3); }
+.submit-btn::after {
+  content: '→'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+  transition: right 0.3s;
+}
+.submit-btn:hover::after { right: 14px; }
+.whatsapp-section {
+  margin-top: 24px; padding: 20px;
+  background: #dcf8c6; border-radius: 4px;
+  display: flex; align-items: center; gap: 14px;
+}
+.wa-icon { font-size: 28px; }
+.wa-text .wa-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #128c7e; }
+.wa-text a {
+  display: block; font-size: 16px; font-weight: 700; color: #075e54;
+  text-decoration: none; margin-top: 2px;
+}
+.wa-text a:hover { text-decoration: underline; }
+
+/* ====== CTA BANNER ====== */
+.cta-banner {
+  background: linear-gradient(135deg, var(--deep), var(--slate));
+  position: relative; overflow: hidden; padding: 80px 5%; text-align: center;
+}
+.cta-banner::before {
+  content: ''; position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1400&q=80') center/cover;
+  opacity: 0.07;
+}
+.cta-banner .inner { position: relative; max-width: 700px; margin: 0 auto; }
+.cta-banner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 44px); color: white; margin-bottom: 16px;
+}
+.cta-banner p { color: rgba(255,255,255,0.7); font-size: 16px; margin-bottom: 36px; }
+.cta-banner .btn-primary { font-size: 14px; padding: 16px 40px; }
+
+/* ====== FOOTER ====== */
+footer {
+  background: #060f1c; color: rgba(255,255,255,0.7);
+  padding: 60px 5% 0;
+}
+.footer-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+  padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.footer-brand .f-logo {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
+}
+.footer-brand .f-logo .mark {
+  width: 38px; height: 38px; background: var(--gold); border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-weight: 900; font-size: 17px; color: var(--deep);
+}
+.footer-brand .f-logo span { color: white; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+.footer-brand p { font-size: 13px; line-height: 1.7; max-width: 280px; }
+.footer-brand .reg-info { margin-top: 20px; font-size: 11px; letter-spacing: 0.5px; color: rgba(255,255,255,0.4); line-height: 1.8; }
+.footer-col h4 {
+  color: white; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 20px; position: relative;
+}
+.footer-col h4::after {
+  content: ''; position: absolute; bottom: -8px; left: 0;
+  width: 20px; height: 1px; background: var(--gold);
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul li a {
+  color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13px;
+  transition: color 0.3s;
+}
+.footer-col ul li a:hover { color: var(--gold); }
+.footer-col .social-links { display: flex; gap: 10px; margin-top: 4px; }
+.social-links a {
+  width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 3px; display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.6); font-size: 16px; text-decoration: none;
+  transition: all 0.3s;
+}
+.social-links a:hover { border-color: var(--gold); color: var(--gold); }
+.footer-bottom {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 24px 0; font-size: 12px; color: rgba(255,255,255,0.35);
+}
+
+/* ====== BACK TO TOP ====== */
+#backToTop {
+  position: fixed; bottom: 88px; right: 24px; z-index: 999;
+  width: 44px; height: 44px; background: var(--deep);
+  border: 1px solid var(--gold); color: var(--gold);
+  border-radius: 4px; display: flex; align-items: center; justify-content: center;
+  font-size: 18px; cursor: pointer; text-decoration: none;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s, background 0.3s;
+  transform: translateY(10px);
+}
+#backToTop.show { opacity: 1; pointer-events: all; transform: translateY(0); }
+#backToTop:hover { background: var(--gold); color: var(--deep); }
+
+/* ====== WHATSAPP FAB ====== */
+#waFab {
+  position: fixed; bottom: 28px; right: 24px; z-index: 999;
+  width: 52px; height: 52px; background: #25d366;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  text-decoration: none; font-size: 26px;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+#waFab:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+#waFab .wa-tooltip {
+  position: absolute; right: 64px; background: #075e54; color: white;
+  padding: 7px 14px; border-radius: 4px; font-size: 13px; font-weight: 500;
+  white-space: nowrap; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s; transform: translateY(-50%); top: 50%;
+}
+#waFab:hover .wa-tooltip { opacity: 1; }
+
+/* ====== FADE IN ====== */
+.fade-in {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+  .hero-content { grid-template-columns: 1fr; }
+  .hero-stats { display: none; }
+  .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item.tall { grid-row: span 1; }
+  .gallery-item.wide { grid-column: span 2; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-form-wrap { padding: 28px; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader"><div class="loader-ring"></div></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#home" class="nav-brand">
+    <div class="logo-mark"><img src="./images/logo.jpeg" alt="The Imam's Services Logo" onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<span style=\'font-family:Playfair Display,serif;font-weight:900;font-size:18px;color:#c9a84c\'>IS</span>')"></div>
+    <span>The Imam's<br>Services Nig Ltd</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/2347033210753" class="nav-cta">WhatsApp Us</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div id="hero">
+    <div class="hero-bg-img"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="eyebrow">Registered Nigerian Enterprise</p>
+        <h1>Excellence in <em>Every</em> Endeavour</h1>
+        <p>THE IMAM'S SERVICES NIG LTD delivers professional catering, construction, event management, and commercial services across Nigeria — with integrity at our core.</p>
+        <div class="hero-buttons">
+          <a href="#services" class="btn-primary">Explore Services</a>
+          <a href="#contact" class="btn-outline">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-box fade-in">
+          <div class="num">10+</div>
+          <div class="label">Service Categories</div>
+        </div>
+        <div class="stat-box fade-in">
+          <div class="num">100%</div>
+          <div class="label">Client Satisfaction</div>
+        </div>
+        <div class="stat-box fade-in">
+          <div class="num">NG</div>
+          <div class="label">Nationwide Coverage</div>
+        </div>
+        <div class="stat-box fade-in">
+          <div class="num">RC</div>
+          <div class="label">8439392 — CAMA 2020</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">SCROLL</div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span>Catering Services</span><span>Event Management</span><span>General Construction</span>
+    <span>Import & Export</span><span>General Supply</span><span>Distributorship</span>
+    <span>Marketing & Distribution</span><span>Manufacturing & Packaging</span><span>Commission Agency</span>
+    <span>Counselling Services</span><span>Agricultural Supply & Trade</span>
+    <!-- duplicate for seamless loop -->
+    <span>Catering Services</span><span>Event Management</span><span>General Construction</span>
+    <span>Import & Export</span><span>General Supply</span><span>Distributorship</span>
+    <span>Marketing & Distribution</span><span>Manufacturing & Packaging</span><span>Commission Agency</span>
+    <span>Counselling Services</span><span>Agricultural Supply & Trade</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="section-inner">
+    <div class="about-grid">
+      
+      <div class="about-img-wrap fade-in">
+        <img src="./images/about.png" alt="About THE IMAM'S SERVICES NIG LTD">
+        <div class="about-img-accent"></div>
+        <div class="about-badge">
+          <span class="yr">2025</span>
+          <span class="yr-label">Incorporated</span>
+        </div>
+      </div>
+
+      <div class="about-text fade-in">
+        <p class="section-label">About the Company</p>
+        <h2 class="section-title">Built on Trust,<br>Driven by Purpose</h2>
+        <p>
+          THE IMAM'S SERVICES NIG LTD is a duly registered Nigerian private company 
+          incorporated under the Companies and Allied Matters Act (CAMA) 2020 in April 2025. 
+          We are headquartered in Kano, Nigeria, and provide professional services across 
+          a broad spectrum of sectors.
+        </p>
+        <p>
+          Our commitment to quality, transparency, and timely delivery has earned us 
+          the trust of clients across Northern Nigeria. We are a company that holds 
+          excellence not as a goal, but as a standard.
+        </p>
+
+        <div class="about-details">
+          <div class="detail-item">
+            <div class="d-label">RC Number</div>
+            <div class="d-value">RC 8439392</div>
+          </div>
+          <div class="detail-item">
+            <div class="d-label">TIN</div>
+            <div class="d-value">33118463-0001</div>
+          </div>
+          <div class="detail-item">
+            <div class="d-label">Headquarters</div>
+            <div class="d-value">Kano, Nigeria</div>
+          </div>
+          <div class="detail-item">
+            <div class="d-label">Sector</div>
+            <div class="d-value">Multi-Service</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="section-inner">
+    <div class="services-intro fade-in">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title light">Our Range of<br>Professional Services</h2>
+      <p>From food service to construction, we bring professional discipline and passion to every engagement.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-item fade-in">
+        <span class="service-icon">🍽️</span>
+        <span class="service-num">01</span>
+        <h3>Catering Services</h3>
+        <p>Full-scale catering for corporate events, weddings, community programmes, and institutional dining with impeccable presentation.</p>
+      </div>
+      <div class="service-item fade-in">
+        <span class="service-icon">🎪</span>
+        <span class="service-num">02</span>
+        <h3>Event Management & Planning</h3>
+        <p>End-to-end event coordination — from venue sourcing and logistics to execution and on-site management.</p>
+      </div>
+      <div class="service-item fade-in">
+        <span class="service-icon">🏗️</span>
+        <span class="service-num">03</span>
+        <h3>General Construction</h3>
+        <p>Residential and commercial construction works delivered to specification, on time and within budget.</p>
+      </div>
+      <div class="service-item fade-in">
+        <span class="service-icon">🚢</span>
+        <span class="service-num">04</span>
+        <h3>Import & Export</h3>
+        <p>Facilitating cross-border trade with expertise in customs compliance, documentation, and logistics.</p>
+      </div>
+      <div class="service-item fade-in">
+        <span class="service-icon">📦</span>
+        <span class="service-num">05</span>
+        <h3>General Supply</h3>
+        <p>Reliable procurement and supply of goods and materials to corporate, institutional, and government clients.</p>
+      </div>
+      <div class="service-item fade-in">
+        <span class="service-icon">🔗</span>
+        <span class="service-num">06</span>
+        <h3>Distributorship</h3>
+        <p>Strategic distribution partnerships connecting manufacturers to retailers and end-users efficiently.</p>
+      </div>
+      <div class="service-item fade-in">
+        <span class="service-icon">📊</span>
+        <span class="service-num">07</span>
+        <h3>Marketing & Distribution</h3>
+        <p>Market penetration strategies and distribution network development for brands entering Nigerian markets.</p>
+      </div>
+      <div class="service-item fade-in">
+        <span class="service-icon">🏭</span>
+        <span class="service-num">08</span>
+        <h3>Manufacturing & Packaging</h3>
+        <p>Small and medium-scale manufacturing support and professional packaging solutions for diverse product lines.</p>
+      </div>
+      <div class="service-item fade-in">
+        <span class="service-icon">🤝</span>
+        <span class="service-num">09</span>
+        <h3>Commission Agency</h3>
+        <p>Acting as a trusted intermediary to facilitate business transactions on behalf of principals.</p>
+      </div>
+      <div class="service-item fade-in">
+        <span class="service-icon">💬</span>
+        <span class="service-num">10</span>
+        <h3>Counselling Services</h3>
+        <p>Professional advisory and counselling support for individuals, families, and organisations navigating challenges.</p>
+      </div>
+      <div class="service-item fade-in">
+        <span class="service-icon">🌾</span>
+        <span class="service-num">11</span>
+        <h3>Agricultural Supply & Trade</h3>
+        <p>Procurement, supply, and distribution of agricultural commodities — including grains, groundnuts, and produce — leveraging Kano's position as Nigeria's commercial agricultural hub.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="section">
+  <div class="section-inner">
+    <div class="why-grid">
+
+      <div class="why-img-col fade-in">
+        <img src="./images/us.png" alt="Why Choose THE IMAM'S SERVICES NIG LTD">
+
+        <div class="why-img-overlay">
+          <p>
+            <strong style="color:var(--gold)">Our Mission:</strong>
+            To deliver consistent, professional, and value-driven services
+            that empower clients and enrich communities across Nigeria.
+          </p>
+        </div>
+      </div>
+
+      <div class="why-text fade-in">
+        <p class="section-label">Why Choose Us</p>
+        <h2 class="section-title">Partners You Can<br>Depend On</h2>
+        <p style="color:#5a6a7a;line-height:1.8;margin-bottom:8px">
+          We do not merely deliver services — we build relationships grounded in trust,
+          professionalism, and a genuine commitment to your success.
+        </p>
+
+        <div class="features-list">
+          <div class="feature">
+            <div class="feature-icon">✅</div>
+            <div>
+              <h4>Legally Registered & Compliant</h4>
+              <p>Fully incorporated under CAMA 2020 with valid RC and TIN, ensuring transparent and accountable dealings.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">🎯</div>
+            <div>
+              <h4>Results-Oriented Approach</h4>
+              <p>Every project is managed with clear milestones, measurable outcomes, and a dedicated team.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">🌍</div>
+            <div>
+              <h4>Pan-Nigeria Reach</h4>
+              <p>Our network and logistics capability extend nationwide, enabling us to serve clients in all states.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">⭐</div>
+            <div>
+              <h4>Quality Assurance</h4>
+              <p>Stringent quality controls applied across all service lines, from food safety to construction standards.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TEAM -->
+<section id="team" class="section">
+  <div class="section-inner">
+    <div class="fade-in" style="text-align:center">
+      <p class="section-label" style="justify-content:center">Our People</p>
+      <h2 class="section-title">Leadership &amp; Key Personnel</h2>
+      <p style="color:var(--muted);max-width:520px;margin:0 auto;font-size:15px">The driving force behind our company's growth — experienced, passionate, and committed to delivering excellence.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card fade-in">
+        <div class="team-card-img">
+          <img src="./images/daibat.jpeg" alt="Abdullahi Daibat Imam - CEO" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder').style.display='flex'">
+          <div class="placeholder" style="display:none">AI</div>
+        </div>
+        <div class="team-card-body">
+          <h3>Abdullahi Daibat Imam</h3>
+          <div class="role">Chief Executive Officer</div>
+          <p>Visionary leader and co-founder steering the company's strategic direction with a commitment to excellence and integrity.</p>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold)">
+            <a href="mailto:ceo@imam.com.ng" style="color:var(--gold);text-decoration:none">✉ ceo@imam.com.ng</a>
+          </div>
+        </div>
+      </div>
+      <div class="team-card fade-in">
+        <div class="team-card-img">
+          <img src="images/director.jpg" alt="Imam Imam Abdullahi - Director" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder').style.display='flex'">
+          <div class="placeholder" style="display:none">IA</div>
+        </div>
+        <div class="team-card-body">
+          <h3>Imam Imam Abdullahi</h3>
+          <div class="role">Director</div>
+          <p>Co-founder and director overseeing operational governance, corporate compliance, and strategic partnerships across divisions.</p>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold)">
+            <a href="mailto:director@imam.com.ng" style="color:var(--gold);text-decoration:none">✉ director@imam.com.ng</a>
+          </div>
+        </div>
+      </div>
+      <div class="team-card fade-in">
+        <div class="team-card-img">
+          <img src="images/operations.jpg" alt="Head of Operations" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder').style.display='flex'">
+          <div class="placeholder" style="display:none">HO</div>
+        </div>
+        <div class="team-card-body">
+          <h3>Head of Operations</h3>
+          <div class="role">Operations Manager</div>
+          <p>Oversees day-to-day service delivery across all divisions ensuring client satisfaction at every level.</p>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold)">
+            <a href="mailto:operations@imam.com.ng" style="color:var(--gold);text-decoration:none">✉ operations@imam.com.ng</a>
+          </div>
+        </div>
+      </div>
+      <div class="team-card fade-in">
+        <div class="team-card-img">
+          <img src="images/marketing.jpg" alt="Marketing Manager" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder').style.display='flex'">
+          <div class="placeholder" style="display:none">MM</div>
+        </div>
+        <div class="team-card-body">
+          <h3>Marketing Manager</h3>
+          <div class="role">Marketing & Business Development</div>
+          <p>Driving brand visibility, new business opportunities, and market expansion across Nigeria and beyond.</p>
+          <div style="margin-top:12px;font-size:12px;color:var(--gold)">
+            <a href="mailto:marketing@imam.com.ng" style="color:var(--gold);text-decoration:none">✉ marketing@imam.com.ng</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section">
+  <div class="section-inner">
+    <div class="gallery-intro fade-in">
+      <p class="section-label">Our Work</p>
+      <h2 class="section-title light">A Glimpse of Our<br>Service Excellence</h2>
+      <p>From Kano's vibrant markets to construction sites, event venues, and farmlands — here is a snapshot of what we deliver.</p>
+    </div>
+    <div class="gallery-grid fade-in">
+
+      <!-- Catering - food spread, no people -->
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Catering — Food Spread">
+        <div class="overlay"><span>🍽️ Catering</span></div>
+      </div>
+
+      <!-- Event setup - decorated venue, no people -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?w=600&q=80" alt="Event — Decorated Venue">
+        <div class="overlay"><span>🎪 Events</span></div>
+      </div>
+
+      <!-- Agriculture 1 - Kano groundnut/grain harvest -->
+
+      <!-- Agriculture 2 - farmland crops aerial -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=600&q=80" alt="Agriculture — Farmland">
+        <div class="overlay"><span>🌱 Agric Farmland</span></div>
+      </div>
+
+      <!-- Agriculture 3 - sacks of produce / commodities -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=600&q=80" alt="Agriculture — Produce Storage">
+        <div class="overlay"><span>🧺 Produce &amp; Supply</span></div>
+      </div>
+
+      <!-- Import/Export - shipping containers, no people -->
+      <div class="gallery-item wide">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80" alt="Import & Export — Containers">
+        <div class="overlay"><span>🚢 Import &amp; Export</span></div>
+      </div>
+
+      <!-- General supply - warehouse goods, no people -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=600&q=80" alt="General Supply — Warehouse">
+        <div class="overlay"><span>📦 General Supply</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner fade-in">
+  <div class="inner">
+    <h2>Ready to Work With Us?</h2>
+    <p>Whether you need catering, construction, supply services, or event planning — we are ready to deliver. Reach out today and let us discuss how we can serve you.</p>
+    <a href="#contact" class="btn-primary">Get a Quote</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="section-inner">
+    <div class="fade-in">
+      <p class="section-label">Reach Out</p>
+      <h2 class="section-title">Get in Touch With Us</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info-block fade-in">
+        <h3>Contact Information</h3>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <div class="ci-label">Office Address</div>
+              <div class="ci-value">No B26 Redbricks Kabuga Housing Estate, Kano, Nigeria</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📞</div>
+            <div>
+              <div class="ci-label">Phone Number</div>
+              <div class="ci-value"><a href="tel:07033210753">07033210753</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">✉️</div>
+            <div>
+              <div class="ci-label">General Enquiries</div>
+              <div class="ci-value"><a href="mailto:info@imam.com.ng">info@imam.com.ng</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📧</div>
+            <div>
+              <div class="ci-label">Business / Contracts</div>
+              <div class="ci-value"><a href="mailto:contracts@imam.com.ng">contracts@imam.com.ng</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📋</div>
+            <div>
+              <div class="ci-label">RC / TIN</div>
+              <div class="ci-value">RC 8439392 &nbsp;|&nbsp; TIN 33118463-0001</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp -->
+        <div class="whatsapp-section" style="margin-top:24px">
+          <div class="wa-icon">💬</div>
+          <div class="wa-text">
+            <div class="wa-label">Chat with us on WhatsApp</div>
+            <a href="https://wa.me/2347033210753?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank">+234 703 321 0753</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="contact-form-wrap fade-in">
+        <h3>Send Us a Message</h3>
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" placeholder="e.g. Amina Bello" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="08012345678">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>Service of Interest</label>
+            <select>
+              <option value="">— Select a Service —</option>
+              <option>Catering Services</option>
+              <option>Event Management & Planning</option>
+              <option>General Construction</option>
+              <option>Import & Export</option>
+              <option>General Supply</option>
+              <option>Distributorship</option>
+              <option>Marketing & Distribution</option>
+              <option>Manufacturing & Packaging</option>
+              <option>Commission Agency</option>
+              <option>Counselling Services</option>
+              <option>Agricultural Supply & Trade</option>
+              <option>Other / General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Your Message</label>
+            <textarea placeholder="Tell us about your project or requirement…" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="f-logo">
+        <div class="mark"><img src="./images/logo.jpeg" alt="Logo" style="width:100%;height:100%;object-fit:contain" onerror="this.outerHTML='IS'"></div>
+        <span>The Imam's Services<br>Nig Ltd</span>
+      </div>
+      <p>A professionally registered Nigerian enterprise delivering quality catering, construction, supply, and event services with integrity across Nigeria.</p>
+      <div class="reg-info">
+        RC 8439392 &nbsp;|&nbsp; TIN 33118463-0001<br>
+        CAC Incorporated under CAMA 2020
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Catering</a></li>
+        <li><a href="#services">Event Management</a></li>
+        <li><a href="#services">Construction</a></li>
+        <li><a href="#services">Import & Export</a></li>
+        <li><a href="#services">General Supply</a></li>
+        <li><a href="#services">Distributorship</a></li>
+        <li><a href="#services">Counselling</a></li>
+        <li><a href="#services">Agricultural Trade</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="tel:07033210753">📞 07033210753</a></li>
+        <li><a href="mailto:info@imam.com.ng">✉️ info@imam.com.ng</a></li>
+        <li><a href="mailto:contracts@imam.com.ng">📧 contracts@imam.com.ng</a></li>
+        <li><a href="https://wa.me/2347033210753" target="_blank">💬 WhatsApp</a></li>
+      </ul>
+      <div class="social-links" style="margin-top:20px">
+        <a href="https://wa.me/2347033210753" target="_blank" title="WhatsApp">💬</a>
+        <a href="mailto:info@imam.com.ng" title="Email">✉️</a>
+        <a href="tel:07033210753" title="Call">📞</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 The Imam's Services Nig Ltd. All Rights Reserved.</span>
+    <span>Kano, Nigeria &nbsp;|&nbsp; RC 8439392</span>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<a id="backToTop" href="#home" title="Back to Top">↑</a>
+
+<!-- WHATSAPP FAB -->
+<a id="waFab" href="https://wa.me/2347033210753?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank">
+  <span>💬</span>
+  <div class="wa-tooltip">Chat on WhatsApp</div>
+</a>
+
+<script>
+// PRELOADER
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('preloader').classList.add('hide'), 600);
+});
+
+// NAVBAR scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 400);
+});
+
+// HAMBURGER
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if (!links) return;
+  const isOpen = links.style.display === 'flex';
+  links.style.display = isOpen ? 'none' : 'flex';
+  links.style.flexDirection = 'column';
+  links.style.position = 'absolute';
+  links.style.top = '72px';
+  links.style.left = '0';
+  links.style.right = '0';
+  links.style.background = 'rgba(10,22,40,0.98)';
+  links.style.padding = '20px 5%';
+  links.style.gap = '20px';
+  links.style.zIndex = '999';
+}
+
+// Close mobile menu when a link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    const links = document.querySelector('.nav-links');
+    if (window.innerWidth <= 768 && links) {
+      links.style.display = 'none';
+    }
+  });
+});
+
+// FADE IN on scroll (Intersection Observer)
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+fadeEls.forEach(el => observer.observe(el));
+
+// CONTACT FORM submission handler
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.submit-btn');
+  const original = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '✓ Message Sent!';
+    btn.style.background = '#2ecc71';
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 3000);
+  }, 1200);
+}
+
+// COUNTER animation for hero stats
+function animateCounter(el, target, duration) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { el.textContent = target + (el.dataset.suffix || ''); clearInterval(timer); }
+    else { el.textContent = Math.floor(start) + (el.dataset.suffix || ''); }
+  }, 16);
+}
+const statNums = document.querySelectorAll('.stat-box .num');
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const val = parseInt(el.dataset.target || el.textContent);
+      if (!isNaN(val)) animateCounter(el, val, 1500);
+      statsObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+statNums.forEach(el => statsObserver.observe(el));
+</script>
+</body>
+</html>
